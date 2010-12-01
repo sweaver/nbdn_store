@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageGeneratorSpecs.cs" />
+    <Compile Include="utility\ObjectMother.cs" />
+    <Compile Include="web\RawRequestHandlerSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">
