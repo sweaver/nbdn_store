@@ -1,6 +1,7 @@
 _UpgradeReport_Files
 UpgradeLog.XML
 obj
+bin
 *.chm
 _[Rr]e[Ss]harper.*
 *.csproj.user
