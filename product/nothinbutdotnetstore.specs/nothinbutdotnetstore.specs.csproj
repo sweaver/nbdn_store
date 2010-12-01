@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="MessageGeneratorSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
+    <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
   </ItemGroup>

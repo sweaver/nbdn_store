@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="MessageGenerator.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
+    <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
