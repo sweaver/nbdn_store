@@ -5,14 +5,21 @@ namespace nothinbutdotnetstore.web.infrastructure
 {
     public class RawRequestHandler : IHttpHandler
     {
+        private RequestFactory requestFactory;
+
+        public RawRequestHandler(RequestFactory requestFactory)
+        {
+            this.requestFactory = requestFactory;
+        }
+
         public void ProcessRequest(HttpContext context)
         {
-            throw new NotImplementedException();
+            requestFactory.create_from(context);
         }
 
         public bool IsReusable
         {
-            get { throw new NotImplementedException(); }
+            get { return true; }
         }
     }
 }
