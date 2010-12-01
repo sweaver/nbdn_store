@@ -65,11 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageGeneratorSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
+    <Compile Include="web\RequestCommandSpecs.cs" />
+    <Compile Include="web\ViewMainDepartmentsInTheStoreSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

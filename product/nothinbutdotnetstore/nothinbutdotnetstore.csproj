@@ -49,18 +49,27 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageGenerator.cs" />
+    <Compile Include="model\Department.cs" />
+    <Compile Include="repositories\Repository.cs" />
+    <Compile Include="repositories\stubs\StubRepository.cs" />
+    <Compile Include="web\application\ViewMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\infrastructure\ApplicationCommand.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
+    <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
     <Compile Include="web\infrastructure\Request.cs" />
     <Compile Include="web\infrastructure\RequestCommand .cs" />
     <Compile Include="web\infrastructure\RequestFactory.cs" />
+    <Compile Include="web\infrastructure\RequestSpecification.cs" />
+    <Compile Include="web\infrastructure\ResponseEngine.cs" />
     <Compile Include="web\infrastructure\stubs\StubFrontController.cs" />
+    <Compile Include="web\infrastructure\stubs\StubRequestCommands.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\infrastructure\stubs\StubResponseEngine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

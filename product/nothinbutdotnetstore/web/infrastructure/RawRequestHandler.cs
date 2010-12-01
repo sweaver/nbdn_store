@@ -9,7 +9,7 @@ namespace nothinbutdotnetstore.web.infrastructure
         FrontController front_controller;
 
         public RawRequestHandler():this(new StubRequestFactory(),
-            new StubFrontController())
+            new DefaultFrontController())
         {
         }
 
