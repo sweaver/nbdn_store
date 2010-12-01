@@ -1,6 +1,6 @@
 namespace nothinbutdotnetstore.web.infrastructure
 {
-    public interface FrontController 
+    public interface RequestCommand 
     {
         void process(Request request);
     }

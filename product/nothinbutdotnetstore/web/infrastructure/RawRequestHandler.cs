@@ -1,12 +1,17 @@
-using System;
 using System.Web;
+using nothinbutdotnetstore.web.infrastructure.stubs;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
     public class RawRequestHandler : IHttpHandler
     {
         RequestFactory request_factory;
-        private FrontController front_controller;
+        FrontController front_controller;
+
+        public RawRequestHandler():this(new StubRequestFactory(),
+            new StubFrontController())
+        {
+        }
 
         public RawRequestHandler(RequestFactory request_factory, FrontController front_controller)
         {
@@ -16,8 +21,7 @@ namespace nothinbutdotnetstore.web.infrastructure
 
         public void ProcessRequest(HttpContext context)
         {
-            Object request = request_factory.create_from(context);
-            front_controller.process(request);
+            front_controller.process(request_factory.create_from(context));
         }
 
         public bool IsReusable

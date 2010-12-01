@@ -50,9 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\infrastructure\CommandRegistry.cs" />
+    <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
+    <Compile Include="web\infrastructure\Request.cs" />
+    <Compile Include="web\infrastructure\RequestCommand .cs" />
     <Compile Include="web\infrastructure\RequestFactory.cs" />
+    <Compile Include="web\infrastructure\stubs\StubFrontController.cs" />
+    <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.specs.web
                 front_controller = the_dependency<FrontController>();
                 request_factory = the_dependency<RequestFactory>();
                 the_context = ObjectMother.create_http_context();
-                request = new object();
+                request = an<Request>();
 
                 request_factory.Stub(x => x.create_from(the_context)).Return(request);
             };
@@ -39,7 +39,7 @@ namespace nothinbutdotnetstore.specs.web
             static RequestFactory request_factory;
             static HttpContext the_context;
             static FrontController front_controller;
-            static object request;
+            static Request request;
         }
     }
 }

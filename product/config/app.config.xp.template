@@ -22,7 +22,7 @@
     <httpHandlers>      
       <add verb="*"
            path="*.store"
-           type="nothinbutdotnetstore.web.core.RequestHandler,nothinbutdotnetstore" />
+           type="nothinbutdotnetstore.web.infrastructure.RawRequestHandler,nothinbutdotnetstore" />
     </httpHandlers>
    </system.web>
   
