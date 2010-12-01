@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.infrastructure
 
         public RequestCommand get_command_that_can_process(Request request)
         {
-            return this.all_commands.Where(x => x.can_process(request) == true).First();
+            return this.all_commands.Where(x => x.can_process(request)).First();
         }
     }
 }
