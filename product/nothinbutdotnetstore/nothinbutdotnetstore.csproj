@@ -54,6 +54,7 @@
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
+    <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
     <Compile Include="web\infrastructure\Request.cs" />
     <Compile Include="web\infrastructure\RequestCommand .cs" />

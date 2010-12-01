@@ -43,5 +43,27 @@ namespace nothinbutdotnetstore.specs.web
             static Request the_request;
             static IList<RequestCommand> all_commands;
         }
+
+        [Subject(typeof(DefaultCommandRegistry))]
+        public class when_getting_a_command_for_a_request_and_it_does_not_have_the_command : concern
+        {
+
+            Establish c = () =>
+            {
+                the_request = an<Request>();
+                all_commands = Enumerable.Range(1, 100).Select(x => an<RequestCommand>()).ToList();
+                provide_a_basic_sut_constructor_argument<IEnumerable<RequestCommand>>(all_commands);
+            };
+
+            Because b = () =>
+                result = sut.get_command_that_can_process(the_request);
+
+            It should_return_a_missing_command = () =>
+                result.ShouldBeAn<MissingRequestCommand>();
+
+            static RequestCommand result;
+            static Request the_request;
+            static IList<RequestCommand> all_commands;
+        }
     }
 }
