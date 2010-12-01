@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
     <Compile Include="web\infrastructure\RequestFactory.cs" />
   </ItemGroup>

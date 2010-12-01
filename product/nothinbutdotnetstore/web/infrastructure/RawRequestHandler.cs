@@ -1,20 +1,19 @@
-using System;
 using System.Web;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
     public class RawRequestHandler : IHttpHandler
     {
-        private RequestFactory requestFactory;
+        RequestFactory request_factory;
 
-        public RawRequestHandler(RequestFactory requestFactory)
+        public RawRequestHandler(RequestFactory request_factory)
         {
-            this.requestFactory = requestFactory;
+            this.request_factory = request_factory;
         }
 
         public void ProcessRequest(HttpContext context)
         {
-            requestFactory.create_from(context);
+            request_factory.create_from(context);
         }
 
         public bool IsReusable

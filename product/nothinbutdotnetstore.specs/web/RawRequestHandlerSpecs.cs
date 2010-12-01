@@ -3,6 +3,7 @@
  using Machine.Specifications.DevelopWithPassion.Rhino;
  using nothinbutdotnetstore.specs.utility;
  using nothinbutdotnetstore.web.infrastructure;
+ using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.web
 {   
@@ -21,17 +22,23 @@ namespace nothinbutdotnetstore.specs.web
             {
                 request_factory = the_dependency<RequestFactory>();
                 the_context = ObjectMother.create_http_context();
+                request = new object();
+
+                request_factory.Stub(x => x.create_from(the_context)).Return(request);
             };
 
             Because b = () =>
                 sut.ProcessRequest(the_context);
 
                 
-            It should_use_the_request_factory_to_create_a_request_from_the_http_context = () =>
-                request_factory.received(x => x.create_from(the_context));
+            It should_tell_the_front_controller_to_process_the_request = () =>
+                front_controller.received(x => x.process(request));
+  
 
             static RequestFactory request_factory;
             static HttpContext the_context;
+            static FrontController front_controller;
+            static object request;
         }
     }
 }

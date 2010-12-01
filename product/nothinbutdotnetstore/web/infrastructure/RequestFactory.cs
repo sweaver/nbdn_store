@@ -4,6 +4,6 @@ namespace nothinbutdotnetstore.web.infrastructure
 {
     public interface RequestFactory
     {
-        void create_from(HttpContext the_context);
+        object create_from(HttpContext the_context);
     }
 }
