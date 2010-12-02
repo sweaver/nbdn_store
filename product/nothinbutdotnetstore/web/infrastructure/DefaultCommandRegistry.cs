@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore.web.infrastructure
 {
     public class DefaultCommandRegistry : CommandRegistry
     {
-        private IEnumerable<RequestCommand> all_commands;
+        IEnumerable<RequestCommand> all_commands;
 
         public DefaultCommandRegistry():this(new StubRequestCommands())
         {
