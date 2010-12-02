@@ -13,7 +13,11 @@ MasterPageFile="Store.master" %>
                     %>
             <tr class="ListItem">
                		 <td>                     
-                     <a href="#blah.store?command=getDepartmentInDepartment:value=department.name"><%=department.name%></a>
+                     <a href="<%=LinkBuilder.for(deparment)
+                                         .to_run<ViewDepartmentsInDepartment>()
+                                         .include(x => x.name,"dept_name")%>"><%=department.name%></a>
+                     h
+
                 	</td>
            	 </tr>        
              <%
