@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore
     {
         public static ItemToStub until<ItemToStub>(this ItemToStub instance, string date) where ItemToStub : new()
         {
-            Stub.a<ItemToStub>().until(date);
+            return Stub.a<ItemToStub>().until(date);
         } 
     }
 
@@ -28,7 +28,7 @@ namespace nothinbutdotnetstore
 
         void ensure_can_still_stub(string date_as_string)
         {
-            if (DateTime.Parse(date_as_string) > DateTime.Now) return;
+            if (DateTime.ParseExact(date_as_string,"yyyyMMdd",System.Globalization.CultureInfo.CurrentCulture) > DateTime.Now) return;
 
             throw new ArgumentException(string.Format("You should not still be trying to stub using the {0}",
                                                       typeof(ItemToStub).Name));
