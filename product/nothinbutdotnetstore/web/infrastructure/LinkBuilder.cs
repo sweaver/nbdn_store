@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.Text;
-using System.Web;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
     public class LinkBuilder<CommandToRun> where CommandToRun : ApplicationCommand
     {
-        public const string link_format = "{0}.store";
+        public const string link_format = "{0}.store?{1}";
         IDictionary<string, object> values;
+        PayloadTokensMapper payload_tokens_mapper;
 
-        public LinkBuilder(IDictionary<string, object> values)
+        public LinkBuilder(IDictionary<string, object> values, PayloadTokensMapper payload_tokens_mapper)
         {
             this.values = values;
+            this.payload_tokens_mapper = payload_tokens_mapper;
         }
 
         public void include<ValueType>(ValueType payload_value, string key)
@@ -21,20 +21,14 @@ namespace nothinbutdotnetstore.web.infrastructure
 
         public static implicit operator string(LinkBuilder<CommandToRun> builder)
         {
-            return string.Format(link_format, typeof(CommandToRun).Name);
+            return builder.ToString();
         }
 
-        public override string ToString() {
-            StringBuilder sb = new StringBuilder(500);
-            sb.Append(typeof (CommandToRun).Name);
-            sb.Append(".store?");
-            StringBuilder returnValue = new StringBuilder(500);
-            foreach (KeyValuePair<string, object> keyvalue in values) {
-                returnValue.AppendFormat("&{0}={1}", HttpUtility.UrlEncode(keyvalue.Key), HttpUtility.UrlEncode(keyvalue.Value.ToString()));
-            }
-
-            return sb + returnValue.ToString().Substring(1);
+        public override string ToString()
+        {
+            return string.Format(link_format,
+                                 typeof(CommandToRun).Name,
+                                 payload_tokens_mapper.map(values));
         }
-
     }
 }

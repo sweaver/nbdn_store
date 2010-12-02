@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Web;
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Extensions;
 using Machine.Specifications.DevelopWithPassion.Rhino;
 using nothinbutdotnetstore.web.infrastructure;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.web
 {
@@ -17,9 +16,11 @@ namespace nothinbutdotnetstore.specs.web
             {
                 payload_values = new Dictionary<string, object>();
                 provide_a_basic_sut_constructor_argument(payload_values);
+                payload_tokens_mapper = the_dependency<PayloadTokensMapper>();
             };
 
             protected static IDictionary<string, object> payload_values;
+            protected static PayloadTokensMapper payload_tokens_mapper;
         }
 
         [Subject(typeof(LinkBuilder<>))]
@@ -48,45 +49,37 @@ namespace nothinbutdotnetstore.specs.web
                 result = sut;
 
             It should_return_the_name_of_the_command_suffixed_with_store = () =>
-                result.ShouldBeEqualIgnoringCase(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name));
+                result.ShouldBeEqualIgnoringCase(LinkBuilder<MyCommand>.link_format.format_using(
+                    typeof(MyCommand).Name, ""));
 
             static
                 string result;
         }
-
 
         [Subject(typeof(LinkBuilder<>))]
         public class when_implicitly_converted_to_a_string_and_it_has_payload_values : concern
         {
             Establish c = () =>
             {
-                payload_values.Add("one", 1);
-                payload_values.Add("two", 2);
-                payload_values.Add("three", 3);
-                payload_values.Add("today", DateTime.Now);
+                mapped_tokens = "this is the result";
+
+                payload_tokens_mapper.Stub(
+                    x => x.map(Arg<IEnumerable<KeyValuePair<string, object>>>.Is.Equal(payload_values))).Return
+                    (mapped_tokens);
             };
 
             Because b = () =>
                 result = sut.ToString();
 
-            private It should_return_the_name_of_the_command_suffixed_with_store_and_correct_formatted_payload_values =
-                () =>
-                result.ShouldEqual(string.Format("{0}.store?{1}",typeof(MyCommand).Name,string_of_values(payload_values)));
+            It should_return_the_name_of_the_command_suffixed_with_store_and_the_transformed_payload_values
+                = () =>
+                    result.ShouldEqual(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name, mapped_tokens));
 
             static
                 string result;
-        }
-        
-        private static string string_of_values(IDictionary<string, object> payloadValues)
-            {
-                StringBuilder returnValue = new StringBuilder(500);
-                foreach(KeyValuePair<string,object> keyvalue in payloadValues)
-                {
-                    returnValue.AppendFormat("&{0}={1}", HttpUtility.UrlEncode(keyvalue.Key), HttpUtility.UrlEncode(keyvalue.Value.ToString()));
-                }
 
-                return returnValue.ToString().Substring(1);
-            }
+            static string mapped_tokens;
+        }
     }
 
     class MyModel

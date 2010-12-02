@@ -62,13 +62,18 @@
     <Compile Include="web\infrastructure\CurrentContextResolver.cs" />
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
+    <Compile Include="web\infrastructure\DefaultPayloadTokenMapper.cs" />
+    <Compile Include="web\infrastructure\DefaultPayloadTokensMapper.cs" />
     <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
     <Compile Include="web\infrastructure\LinkBuilder.cs" />
     <Compile Include="web\infrastructure\Link.cs" />
+    <Compile Include="web\infrastructure\PayloadTokenMapper.cs" />
+    <Compile Include="web\infrastructure\PayloadTokensMapper.cs" />
     <Compile Include="web\infrastructure\SimpleWebView.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="web\infrastructure\stubs\StubWebFormViewPathRegistry.cs" />
+    <Compile Include="web\infrastructure\Encode.cs" />
     <Compile Include="web\infrastructure\WebFormResponseEngine.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
