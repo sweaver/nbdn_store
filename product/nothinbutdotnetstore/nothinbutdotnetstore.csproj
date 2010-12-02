@@ -52,6 +52,7 @@
     <Compile Include="model\Department.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\stubs\StubRepository.cs" />
+    <Compile Include="Stub.cs" />
     <Compile Include="web\application\ViewMainDepartmentsInTheStore.cs" />
     <Compile Include="web\infrastructure\ApplicationCommand.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />

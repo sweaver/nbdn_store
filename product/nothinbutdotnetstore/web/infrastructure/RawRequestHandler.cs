@@ -8,7 +8,7 @@ namespace nothinbutdotnetstore.web.infrastructure
         RequestFactory request_factory;
         FrontController front_controller;
 
-        public RawRequestHandler():this(new StubRequestFactory(),
+        public RawRequestHandler():this(new StubRequestFactory().until("20101010"),
             new DefaultFrontController())
         {
         }
