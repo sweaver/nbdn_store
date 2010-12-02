@@ -52,12 +52,15 @@
     <Compile Include="model\Department.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\stubs\StubRepository.cs" />
+    <Compile Include="web\application\ViewDepartmentsInADeparment.cs" />
     <Compile Include="web\application\ViewMainDepartmentsInTheStore.cs" />
     <Compile Include="web\infrastructure\ApplicationCommand.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
+    <Compile Include="web\infrastructure\DefaultResponseEngine.cs" />
+    <Compile Include="web\infrastructure\DefaultResponseViewRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
     <Compile Include="web\infrastructure\RawRequestHandler.cs" />
@@ -66,6 +69,8 @@
     <Compile Include="web\infrastructure\RequestFactory.cs" />
     <Compile Include="web\infrastructure\RequestSpecification.cs" />
     <Compile Include="web\infrastructure\ResponseEngine.cs" />
+    <Compile Include="web\infrastructure\ResponseView.cs" />
+    <Compile Include="web\infrastructure\ResponseViewRegistry.cs" />
     <Compile Include="web\infrastructure\stubs\StubFrontController.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestCommands.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />

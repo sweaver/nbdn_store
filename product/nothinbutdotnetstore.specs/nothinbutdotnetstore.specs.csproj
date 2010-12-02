@@ -70,6 +70,9 @@
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
     <Compile Include="web\RequestCommandSpecs.cs" />
+    <Compile Include="web\ResponseEngineSpecs.cs" />
+    <Compile Include="web\ResponseViewRegistrySpecs.cs" />
+    <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsInTheStoreSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
