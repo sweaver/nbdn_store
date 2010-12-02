@@ -63,8 +63,8 @@
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
-    <Compile Include="web\infrastructure\LinkAgregator.cs" />
     <Compile Include="web\infrastructure\LinkBuilder.cs" />
+    <Compile Include="web\infrastructure\Link.cs" />
     <Compile Include="web\infrastructure\SimpleWebView.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

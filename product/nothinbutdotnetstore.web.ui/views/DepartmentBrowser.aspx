@@ -15,7 +15,7 @@ MasterPageFile="Store.master" %>
                     %>
             <tr class="ListItem">
                		 <td>                     
-                        <a href="<%=LinkBuilder.to_run<ViewDepartmentsInDepartment>()
+                        <a href="<%=Link.to_run<ViewDepartmentsInDepartment>()
                                          .include(department.name,InputKeys.department_name)%>"><%=department.name%></a>
                      </td>
            	 </tr>        

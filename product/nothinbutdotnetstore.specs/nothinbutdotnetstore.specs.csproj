@@ -69,6 +69,7 @@
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\LinkBuilderSpecs.cs" />
+    <Compile Include="web\LinkSpecs.cs" />
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
     <Compile Include="web\RequestCommandSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />

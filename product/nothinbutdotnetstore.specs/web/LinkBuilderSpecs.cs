@@ -1,43 +1,88 @@
- 
+using System;
 using System.Collections.Generic;
-using System.Web;
 using Machine.Specifications;
+using Machine.Specifications.DevelopWithPassion.Extensions;
 using Machine.Specifications.DevelopWithPassion.Rhino;
-using nothinbutdotnetstore.model;
-using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.infrastructure;
 
 namespace nothinbutdotnetstore.specs.web
 {
     public class LinkBuilderSpecs
     {
-        public abstract class concern : Observes
+        public abstract class concern : Observes<LinkBuilder<MyCommand>>
         {
+            Establish c = () =>
+            {
+                payload_values = new Dictionary<string, object>();
+                provide_a_basic_sut_constructor_argument(payload_values);
+            };
 
+            protected static IDictionary<string, object> payload_values;
         }
 
-        [Subject(typeof (LinkBuilder))]
-        public class when_link_build_requested : concern
+        [Subject(typeof(LinkBuilder<>))]
+        public class when_adding_a_key_value_pair : concern
         {
-            private Establish e = () =>
-                                  department = new Department() { name = "grocery"};
+            Establish c = () =>
+            {
+                key = "blah";
+                my_model = new MyModel {name = "bsdfsdf"};
+            };
 
-            
-            private Because b = () =>
-                                result = LinkBuilder.to_run<ViewDepartmentsInDepartment>()
-                                             .include(department.name, InputKeys.department_name);
+            Because b = () =>
+                sut.include(my_model.name, key);
+
+            It should_store_the_key_value_pair_for_later_use_in_url_building = () =>
+                payload_values[key].ShouldEqual(my_model.name);
+
+            static string key;
+            static MyModel my_model;
+        }
+
+        [Subject(typeof(LinkBuilder<>))]
+        public class when_implicitly_converted_to_a_string_and_it_has_no_payload_values : concern
+        {
+            Because b = () =>
+                result = sut;
+
+            It should_return_the_name_of_the_command_suffixed_with_store = () =>
+                result.ShouldBeEqualIgnoringCase(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name));
+
+            static
+                string result;
+        }
+
+        public class when_implicitly_converted_to_a_string_and_it_has_payload_values : concern
+        {
+            Establish c = () =>
+            {
+                payload_values.Add("one", 1);
+                payload_values.Add("two", 2);
+                payload_values.Add("three", 3);
+                payload_values.Add("today", DateTime.Now);
+            };
+
+            Because b = () =>
+                result = sut;
+
+            It should_return_the_name_of_the_command_suffixed_with_store_and_correct_formatted_payload_values = () =>
 
 
-            private It should_return_link_with_department = () =>
-                                                            result.ShouldEqual(
-                                                                string.Format(
-                                                                "ViewDepartmentsInDepartment/storecontroller.store?{0}={1}",
-                                                                InputKeys.department_name,department.name
-                                                                ));
-                
-            private static string result;
-            private static Department department;
+            static
+                string result;
+        }
+    }
 
+    class MyModel
+    {
+        public string name { get; set; }
+    }
+
+    public class MyCommand : ApplicationCommand
+    {
+        public void process(Request request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
