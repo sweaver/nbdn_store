@@ -63,10 +63,13 @@
     <Compile Include="web\infrastructure\DefaultCommandRegistry.cs" />
     <Compile Include="web\infrastructure\DefaultFrontController.cs" />
     <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
+    <Compile Include="web\infrastructure\LinkAgregator.cs" />
+    <Compile Include="web\infrastructure\LinkBuilder.cs" />
     <Compile Include="web\infrastructure\SimpleWebView.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="web\infrastructure\stubs\StubWebFormViewPathRegistry.cs" />
+    <Compile Include="web\infrastructure\ViewDepartmentsInDepartment.cs" />
     <Compile Include="web\infrastructure\WebFormResponseEngine.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
