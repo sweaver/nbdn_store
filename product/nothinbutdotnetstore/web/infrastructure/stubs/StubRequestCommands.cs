@@ -15,6 +15,9 @@ namespace nothinbutdotnetstore.web.infrastructure.stubs
         {
             yield return new DefaultRequestCommand(x => true,
                                                    new ViewMainDepartmentsInTheStore());
+
+            yield return new DefaultRequestCommand(x => true,
+                                                   new ViewDepartmentsInADeparment());
         }
     }
 }

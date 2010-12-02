@@ -1,5 +1,6 @@
 ﻿using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.repositories;
+using nothinbutdotnetstore.repositories.stubs;
 using nothinbutdotnetstore.web.infrastructure;
 
 namespace nothinbutdotnetstore.web.application
@@ -7,7 +8,13 @@ namespace nothinbutdotnetstore.web.application
     public class ViewDepartmentsInADeparment : ApplicationCommand
     {
         Repository department_repository;
+
         ResponseEngine response_engine;
+
+        public ViewDepartmentsInADeparment():this(new StubRepository(),
+                                                  new WebFormResponseEngine())
+        {
+        }
 
         public ViewDepartmentsInADeparment(Repository department_repository, ResponseEngine response_engine)
         {
