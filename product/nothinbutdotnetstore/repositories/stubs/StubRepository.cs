@@ -12,7 +12,7 @@ namespace nothinbutdotnetstore.repositories.stubs
             return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Department 0")});
         }
 
-        public IEnumerable<Department> get_all_departments_within_department()
+        public IEnumerable<Department> get_all_departments_in(Department department)
         {
             return Enumerable.Range(1, 100).Select(x => new Department { name = x.ToString("SubDepartment 0") });
         

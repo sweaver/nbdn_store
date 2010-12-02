@@ -8,7 +8,7 @@ using nothinbutdotnetstore.web.infrastructure;
 using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.web {
-    public class ViewDepartmensInADepartmentSpec {
+    public class ViewDepartmensInADepartmentSpecs {
         public abstract class concern : Observes<ApplicationCommand,
                                             ViewDepartmentsInADeparment> {
 
@@ -19,12 +19,13 @@ namespace nothinbutdotnetstore.specs.web {
             Establish c = () =>
             {
                 response_engine = the_dependency<ResponseEngine>();
-                department_repository = the_dependency<Repository>();
                 department = new Department();
+                provide_a_basic_sut_constructor_argument(department);
+                departments_in_a_department = new List<Department> {new Department()};
                 request = an<Request>();
 
-
-                department_repository.Stub(x => x.get_all_departments_within_department()).Return(departments);
+                request.Stub(x => x.map<Department>()).Return(department);
+                department_repository.Stub(x => x.get_all_departments_in(department)).Return(departments_in_a_department);
             };
 
             Because b = () =>
@@ -32,13 +33,13 @@ namespace nothinbutdotnetstore.specs.web {
 
 
             It should_display_the_list_of_departments_within_a_department = () =>
-                response_engine.received(x => x.display(departments));
+                response_engine.received(x => x.display(departments_in_a_department));
 
             private static Department department;
             static Repository department_repository;
             static Request request;
             static ResponseEngine response_engine;
-            static IEnumerable<Department> departments;
+            static IEnumerable<Department> departments_in_a_department;
         }
     }
 }
