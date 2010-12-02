@@ -19,6 +19,7 @@ namespace nothinbutdotnetstore.specs.web {
             Establish c = () =>
             {
                 response_engine = the_dependency<ResponseEngine>();
+                department_repository = the_dependency<Repository>();
                 department = new Department();
                 provide_a_basic_sut_constructor_argument(department);
                 departments_in_a_department = new List<Department> {new Department()};

@@ -1,16 +1,14 @@
 <%@ MasterType VirtualPath="Store.master" %>
 <%@ Page Language="C#" AutoEventWireup="true" 
-Inherits="System.Web.UI.Page" MasterPageFile="Store.master" %>
-<%@ Import Namespace="nothinbutdotnetstore.model" %>
-<%@ Import Namespace="System.Collections.Generic" %>
+Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" 
+CodeFile="DepartmentBrowser.aspx.cs"
+MasterPageFile="Store.master" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            
             <%--each department should go here--%>
             <%
-                var departments = (IEnumerable<Department>) this.Context.Items["blah"];
-
-                foreach (var department in departments)
+                foreach (var department in this.model)
                 {
                     %>
             <tr class="ListItem">

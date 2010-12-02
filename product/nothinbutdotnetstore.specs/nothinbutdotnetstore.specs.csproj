@@ -71,9 +71,9 @@
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
     <Compile Include="web\RequestCommandSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />
-    <Compile Include="web\ResponseViewRegistrySpecs.cs" />
     <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsInTheStoreSpecs.cs" />
+    <Compile Include="web\WebFormViewFactorySpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">
