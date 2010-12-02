@@ -16,7 +16,8 @@ MasterPageFile="Store.master" %>
             <tr class="ListItem">
                		 <td>                     
                         <a href="<%=Link.to_run<ViewDepartmentsInADeparment>()
-                                         .include(department.name,InputKeys.department_name)%>"><%=department.name%></a>
+                                         .tokenize_with(department)
+                                         .include(x => x.name)%>"><%=department.name%></a>
                      </td>
            	 </tr>        
              <%

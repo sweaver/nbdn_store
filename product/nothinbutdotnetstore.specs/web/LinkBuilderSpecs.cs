@@ -24,7 +24,7 @@ namespace nothinbutdotnetstore.specs.web
         }
 
         [Subject(typeof(LinkBuilder<>))]
-        public class when_adding_a_key_value_pair : concern
+        public class when_adding_a_basic_key_value_pair : concern
         {
             Establish c = () =>
             {
@@ -73,25 +73,58 @@ namespace nothinbutdotnetstore.specs.web
 
             It should_return_the_name_of_the_command_suffixed_with_store_and_the_transformed_payload_values
                 = () =>
-                    result.ShouldEqual(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name, mapped_tokens));
+                    result.ShouldEqual(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name,
+                                                                                       mapped_tokens));
 
             static
                 string result;
 
             static string mapped_tokens;
         }
-    }
 
-    class MyModel
-    {
-        public string name { get; set; }
-    }
-
-    public class MyCommand : ApplicationCommand
-    {
-        public void process(Request request)
+        public class acceptance
         {
-            throw new NotImplementedException();
+            public class concern : Observes<LinkBuilder<MyCommand>>
+            {
+                Establish c = () =>
+                {
+                    create_sut_using(() => new LinkBuilder<MyCommand>(
+                        new Dictionary<string, object>(),
+                        new DefaultPayloadTokensMapper()));
+                };
+            }
+
+            [Subject(typeof(LinkBuilder<>))]
+            public class when_building_links_with_real_dependencies : concern
+            {
+                Because b = () =>
+                {
+                    sut.include(23, "hello");
+                    sut.include(24, "again");
+                    result = sut;
+                };
+
+                It should_create_the_correct_links = () =>
+                    result.Contains("MyCommand.store?hello=23&again=24");
+
+                static string result;
+ 
+  
+
+            }
+        }
+
+        class MyModel
+        {
+            public string name { get; set; }
+        }
+
+        public class MyCommand : ApplicationCommand
+        {
+            public void process(Request request)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
