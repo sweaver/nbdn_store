@@ -3,6 +3,7 @@
 Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" 
 CodeFile="DepartmentBrowser.aspx.cs"
 MasterPageFile="Store.master" %>
+<%@ Import Namespace="nothinbutdotnetstore.web.application" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            
@@ -15,7 +16,7 @@ MasterPageFile="Store.master" %>
                		 <td>                     
                      <a href="<%=LinkBuilder.for(deparment)
                                          .to_run<ViewDepartmentsInDepartment>()
-                                         .include(x => x.name,"dept_name")%>"><%=department.name%></a>
+                                         .include(x => x.name,InputKeys.department_name)%>"><%=department.name%></a>
                      h
 
                 	</td>
