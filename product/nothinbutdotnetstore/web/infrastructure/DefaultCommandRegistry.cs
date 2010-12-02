@@ -19,6 +19,7 @@ namespace nothinbutdotnetstore.web.infrastructure
 
         public RequestCommand get_command_that_can_process(Request request)
         {
+           commandName = request.GetCommandName();
             return this.all_commands.FirstOrDefault(x => x.can_process(request)) ??
                 new MissingRequestCommand();
         }

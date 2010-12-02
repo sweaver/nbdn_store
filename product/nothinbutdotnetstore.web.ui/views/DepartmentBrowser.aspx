@@ -13,7 +13,7 @@ MasterPageFile="Store.master" %>
                     %>
             <tr class="ListItem">
                		 <td>                     
-                     <a href="#"><%=department.name%></a>
+                     <a href="#blah.store?command=getDepartmentInDepartment:value=department.name"><%=department.name%></a>
                 	</td>
            	 </tr>        
              <%
