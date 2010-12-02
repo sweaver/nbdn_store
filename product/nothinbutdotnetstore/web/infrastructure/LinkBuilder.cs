@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Text;
+using System.Web;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
@@ -21,5 +23,18 @@ namespace nothinbutdotnetstore.web.infrastructure
         {
             return string.Format(link_format, typeof(CommandToRun).Name);
         }
+
+        public override string ToString() {
+            StringBuilder sb = new StringBuilder(500);
+            sb.Append(typeof (CommandToRun).Name);
+            sb.Append(".store?");
+            StringBuilder returnValue = new StringBuilder(500);
+            foreach (KeyValuePair<string, object> keyvalue in values) {
+                returnValue.AppendFormat("&{0}={1}", HttpUtility.UrlEncode(keyvalue.Key), HttpUtility.UrlEncode(keyvalue.Value.ToString()));
+            }
+
+            return sb + returnValue.ToString().Substring(1);
+        }
+
     }
 }

@@ -73,8 +73,6 @@ namespace nothinbutdotnetstore.specs.web
                 () =>
                 result.ShouldEqual(string.Format("{0}.store?{1}",typeof(MyCommand).Name,string_of_values(payload_values)));
 
-            
-
             static
                 string result;
         }
