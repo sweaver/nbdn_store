@@ -69,7 +69,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="web\infrastructure\stubs\StubWebFormViewPathRegistry.cs" />
-    <Compile Include="web\infrastructure\ViewDepartmentsInDepartment.cs" />
     <Compile Include="web\infrastructure\WebFormResponseEngine.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
