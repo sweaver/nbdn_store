@@ -9,11 +9,6 @@ namespace nothinbutdotnetstore.web.application
         Repository department_repository;
         ResponseEngine response_engine;
 
-        public ViewMainDepartmentsInTheStore() : this(new StubRepository(),
-                                                      new WebFormResponseEngine())
-        {
-        }
-
         public ViewMainDepartmentsInTheStore(Repository department_repository, ResponseEngine response_engine)
         {
             this.department_repository = department_repository;

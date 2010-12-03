@@ -10,11 +10,6 @@ namespace nothinbutdotnetstore.web.application
         Repository department_repository;
         ResponseEngine response_engine;
 
-        public ViewDepartmentsInADeparment():this(new StubRepository(),
-                                                  new WebFormResponseEngine())
-        {
-        }
-
         public ViewDepartmentsInADeparment(Repository department_repository, ResponseEngine response_engine)
         {
             this.department_repository = department_repository;

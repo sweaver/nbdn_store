@@ -8,10 +8,6 @@ namespace nothinbutdotnetstore.web.infrastructure
     {
         IEnumerable<RequestCommand> all_commands;
 
-        public DefaultCommandRegistry():this(new StubRequestCommands())
-        {
-        }
-
         public DefaultCommandRegistry(IEnumerable<RequestCommand> all_commands)
         {
             this.all_commands = all_commands;

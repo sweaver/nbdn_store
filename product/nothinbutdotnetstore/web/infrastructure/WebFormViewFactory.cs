@@ -8,10 +8,6 @@ namespace nothinbutdotnetstore.web.infrastructure
         WebFormViewPathRegistry path_registry;
         PageFactory page_factory;
 
-        public WebFormViewFactory():this(new StubWebFormViewPathRegistry(),BuildManager.CreateInstanceFromVirtualPath)
-        {
-        }
-
         public WebFormViewFactory(WebFormViewPathRegistry path_registry, PageFactory page_factory)
         {
             this.path_registry = path_registry;

@@ -7,10 +7,6 @@ namespace nothinbutdotnetstore.web.infrastructure
         ViewFactory view_factory;
         CurrentContextResolver current_context_resolver;
 
-        public WebFormResponseEngine():this(new WebFormViewFactory(),() => HttpContext.Current)
-        {
-        }
-
         public WebFormResponseEngine(ViewFactory view_factory, CurrentContextResolver current_context_resolver)
         {
             this.view_factory = view_factory;

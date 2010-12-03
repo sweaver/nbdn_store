@@ -13,17 +13,19 @@ namespace nothinbutdotnetstore.web.infrastructure.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
-            yield return
-                new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewMainDepartmentsInTheStore).Name),
-                                          new ViewMainDepartmentsInTheStore());
+            yield break;
+            
+            //yield return
+            //    new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewMainDepartmentsInTheStore).Name),
+            //                              new ViewMainDepartmentsInTheStore());
 
-            yield return
-                new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewDepartmentsInADeparment).Name),
-                                          new ViewDepartmentsInADeparment());
+            //yield return
+            //    new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewDepartmentsInADeparment).Name),
+            //                              new ViewDepartmentsInADeparment());
 
-            yield return
-                new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewProductsInADepartment).Name),
-                                          new ViewProductsInADepartment());
+            //yield return
+            //    new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewProductsInADepartment).Name),
+            //                              new ViewProductsInADepartment());
         }
     }
 }
