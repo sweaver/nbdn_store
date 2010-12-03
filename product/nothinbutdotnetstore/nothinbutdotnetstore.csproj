@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model\Department.cs" />
+    <Compile Include="model\Product.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\stubs\StubRepository.cs" />
+    <Compile Include="web\application\ViewProductsInADeparment.cs" />
     <Compile Include="web\application\InputKeys.cs" />
     <Compile Include="web\application\StoreDirectoryController.cs" />
     <Compile Include="web\application\ViewDepartmentsInADeparment.cs" />

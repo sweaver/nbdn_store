@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="utility\ObjectMother.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
+    <Compile Include="web\ViewProductsInADepartmentSpecs.cs" />
     <Compile Include="web\FrontControllerSpecs.cs" />
     <Compile Include="web\LinkBuilderSpecs.cs" />
     <Compile Include="web\LinkSpecs.cs" />

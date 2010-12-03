@@ -15,5 +15,11 @@ namespace nothinbutdotnetstore.repositories.stubs
         {
             return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Sub Department 0")});
         }
+
+
+        public IEnumerable<Product> get_products_in_department(Department department)
+        {
+            return Enumerable.Range(1, 10).Select(x => new Product() { Name = x.ToString("Product 0") });
+        }
     }
 }
