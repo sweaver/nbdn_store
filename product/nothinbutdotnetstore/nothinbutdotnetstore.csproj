@@ -53,6 +53,7 @@
     <Compile Include="model\Product.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\stubs\StubRepository.cs" />
+    <Compile Include="web\application\AddItemToShoppingCart.cs" />
     <Compile Include="web\application\GetTheDetails.cs" />
     <Compile Include="web\application\ViewDetails.cs" />
     <Compile Include="web\application\ViewProductsInADepartment.cs" />

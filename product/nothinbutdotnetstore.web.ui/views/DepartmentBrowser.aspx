@@ -12,12 +12,20 @@ MasterPageFile="Store.master" %>
             <%
                 foreach (var department in this.model)
                 {
-                    %>
+                    var builder = Link.create();
+                    builder.tokenize_with(department).include(x => x.name);
+                    if (department.has_products)
+                    {
+                        builder.to_target<ViewProductsInADepartment>();
+                    }
+                    else
+                    {
+                        builder.to_target<ViewDepartmentsInADeparment>();
+                    }
+%>
             <tr class="ListItem">
                		 <td>                     
-                        <a href="<%=Link.to_run<ViewDepartmentsInADeparment>()
-                                         .tokenize_with(department)
-                                         .include(x => x.name)%>"><%=department.name%></a>
+                        <a href="<%=builder%>"><%=department.name%> </a>
                      </td>
            	 </tr>        
              <%

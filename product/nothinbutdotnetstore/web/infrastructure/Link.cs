@@ -6,5 +6,10 @@
         {
             return new DefaultLinkBuilder().to_target<CommandToRun>();
         }
+
+        public static DefaultLinkBuilder create()
+        {
+            return new DefaultLinkBuilder();
+        }
     }
 }

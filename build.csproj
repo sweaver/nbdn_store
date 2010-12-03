@@ -173,6 +173,7 @@
     <None Include="product\config\hibernate.cfg.xml.template" />
     <None Include="product\config\log4net.config.xml.template" />
     <None Include="product\config\our_custom_config.txt.template" />
+    <None Include="product\docs\conventions.markdown" />
     <None Include="product\sql\data\001\001_populate_foo.sql.template" />
     <None Include="product\sql\ddl\001\001_db.sql.template" />
     <None Include="product\sql\ddl\001\002_security.sql.template" />
