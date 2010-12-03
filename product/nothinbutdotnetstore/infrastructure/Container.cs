@@ -4,14 +4,17 @@ namespace nothinbutdotnetstore.infrastructure
 {
     public class Container
     {
+        private static DependencyContainer container;
+
         public static ContainerResolver resolver = () =>
-        {
-            throw new NotImplementedException("This needs to be configured by a startup process");
-        };
+                                                       {
+                                                           container = new DefaultContainer();
+                                                           return container;
+                                                       };
 
         public static DependencyContainer resolve
         {
-            get { throw new NotImplementedException(); }
+            get { return container; }
         }
     }
 }

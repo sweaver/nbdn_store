@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="infrastructure\Container.cs" />
     <Compile Include="infrastructure\ContainerResolver.cs" />
+    <Compile Include="infrastructure\DefaultContainer.cs" />
     <Compile Include="infrastructure\DependencyContainer.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="model\Product.cs" />
