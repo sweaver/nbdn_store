@@ -1,6 +1,6 @@
 using System;
 
-namespace nothinbutdotnetstore.infrastructure
+namespace nothinbutdotnetstore.infrastructure.containers
 {
     public class Container
     {

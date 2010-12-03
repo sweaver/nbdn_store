@@ -49,9 +49,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="infrastructure\Container.cs" />
-    <Compile Include="infrastructure\ContainerResolver.cs" />
-    <Compile Include="infrastructure\DependencyContainer.cs" />
+    <Compile Include="infrastructure\containers\basic\BasicDependencyContainer.cs" />
+    <Compile Include="infrastructure\containers\basic\DependencyBuilder.cs" />
+    <Compile Include="infrastructure\containers\basic\DependencyBuilders.cs" />
+    <Compile Include="infrastructure\containers\Container.cs" />
+    <Compile Include="infrastructure\containers\ContainerResolver.cs" />
+    <Compile Include="infrastructure\containers\DependencyContainer.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="repositories\Repository.cs" />

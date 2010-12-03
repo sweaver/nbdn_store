@@ -2,6 +2,7 @@
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Rhino;
 using nothinbutdotnetstore.infrastructure;
+using nothinbutdotnetstore.infrastructure.containers;
 
 namespace nothinbutdotnetstore.specs.infrastructure
 {
