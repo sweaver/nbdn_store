@@ -21,8 +21,8 @@ namespace nothinbutdotnetstore.specs.infrastructure
             Establish c = () =>
             {
                 the_sql_connection = new SqlConnection();
-                dependency_builder = an<DependencyBuilder>();
                 builder_registry = the_dependency<DependencyBuilders>();
+                dependency_builder = an<DependencyBuilder>();
 
                 builder_registry.Stub(x => x.get_the_builder_to_build<IDbConnection>()).Return(dependency_builder);
                 dependency_builder.Stub(x => x.build()).Return(the_sql_connection);

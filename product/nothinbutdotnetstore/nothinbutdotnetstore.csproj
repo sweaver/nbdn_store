@@ -49,6 +49,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\containers\basic\BasicDependencyBuilders.cs" />
     <Compile Include="infrastructure\containers\basic\BasicDependencyContainer.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyBuilder.cs" />
     <Compile Include="infrastructure\containers\basic\DependencyBuilders.cs" />
