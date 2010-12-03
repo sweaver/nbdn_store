@@ -8,7 +8,6 @@ namespace nothinbutdotnetstore.web.application
     public class ViewDepartmentsInADeparment : ApplicationCommand
     {
         Repository department_repository;
-
         ResponseEngine response_engine;
 
         public ViewDepartmentsInADeparment():this(new StubRepository(),
