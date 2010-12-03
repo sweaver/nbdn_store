@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
-    public class LinkBuilder<CommandToRun> where CommandToRun : ApplicationCommand
+    public class LinkBuilder
     {
         public const string link_format = "{0}.store?{1}";
         IDictionary<string, object> values;
         PayloadTokensMapper payload_tokens_mapper;
+        public Type command_to_run { get; private set; }
 
         public LinkBuilder(IDictionary<string, object> values, PayloadTokensMapper payload_tokens_mapper)
         {
@@ -14,12 +16,13 @@ namespace nothinbutdotnetstore.web.infrastructure
             this.payload_tokens_mapper = payload_tokens_mapper;
         }
 
+
         public void include<ValueType>(ValueType payload_value, string key)
         {
             values.Add(key, payload_value);
         }
 
-        public static implicit operator string(LinkBuilder<CommandToRun> builder)
+        public static implicit operator string(LinkBuilder builder)
         {
             return builder.ToString();
         }
@@ -27,8 +30,19 @@ namespace nothinbutdotnetstore.web.infrastructure
         public override string ToString()
         {
             return string.Format(link_format,
-                                 typeof(CommandToRun).Name,
+                                 command_to_run.Name,
                                  payload_tokens_mapper.map(values));
+        }
+
+        public TokenAppender<Item> tokenize_with<Item>(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public LinkBuilder to_run<Command>() where Command : ApplicationCommand
+        {
+            this.command_to_run = typeof(Command);
+            return this;
         }
     }
 }

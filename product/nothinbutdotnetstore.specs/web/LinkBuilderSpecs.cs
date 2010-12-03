@@ -10,7 +10,7 @@ namespace nothinbutdotnetstore.specs.web
 {
     public class LinkBuilderSpecs
     {
-        public abstract class concern : Observes<LinkBuilder<MyCommand>>
+        public abstract class concern : Observes<LinkBuilder>
         {
             Establish c = () =>
             {
@@ -23,7 +23,31 @@ namespace nothinbutdotnetstore.specs.web
             protected static PayloadTokensMapper payload_tokens_mapper;
         }
 
-        [Subject(typeof(LinkBuilder<>))]
+        public class when_specifying_a_command_to_run : concern
+        {
+            Establish c = () =>
+            {
+                key = "blah";
+                my_model = new MyModel {name = "bsdfsdf"};
+            };
+
+            Because b = () =>
+                result=sut.to_run<MyCommand>();
+
+            It should_store_the_type_of_the_command_to_be_run = () =>
+                sut.command_to_run.ShouldEqual(typeof(MyCommand));
+
+            It should_return_the_builder_to_continue_url_building = () =>
+                result.ShouldEqual(sut);
+
+
+
+            static string key;
+            static MyModel my_model;
+            static LinkBuilder result;
+        }
+
+        [Subject(typeof(LinkBuilder))]
         public class when_adding_a_basic_key_value_pair : concern
         {
             Establish c = () =>
@@ -42,22 +66,29 @@ namespace nothinbutdotnetstore.specs.web
             static MyModel my_model;
         }
 
-        [Subject(typeof(LinkBuilder<>))]
-        public class when_implicitly_converted_to_a_string_and_it_has_no_payload_values : concern
+        public class concern_for_link_builder_with_a_targeted_command:concern
+        {
+        }
+
+        [Subject(typeof(LinkBuilder))]
+        public class when_implicitly_converted_to_a_string_and_it_has_no_payload_values : concern_for_link_builder_with_a_targeted_command
         {
             Because b = () =>
+            {
+                sut.to_run<MyCommand>();
                 result = sut;
+            };
 
             It should_return_the_name_of_the_command_suffixed_with_store = () =>
-                result.ShouldBeEqualIgnoringCase(LinkBuilder<MyCommand>.link_format.format_using(
+                result.ShouldBeEqualIgnoringCase(LinkBuilder.link_format.format_using(
                     typeof(MyCommand).Name, ""));
 
             static
                 string result;
         }
 
-        [Subject(typeof(LinkBuilder<>))]
-        public class when_implicitly_converted_to_a_string_and_it_has_payload_values : concern
+        [Subject(typeof(LinkBuilder))]
+        public class when_implicitly_converted_to_a_string_and_it_has_payload_values : concern_for_link_builder_with_a_targeted_command
         {
             Establish c = () =>
             {
@@ -69,11 +100,14 @@ namespace nothinbutdotnetstore.specs.web
             };
 
             Because b = () =>
+            {
+                sut.to_run<MyCommand>();
                 result = sut.ToString();
+            };
 
             It should_return_the_name_of_the_command_suffixed_with_store_and_the_transformed_payload_values
                 = () =>
-                    result.ShouldEqual(LinkBuilder<MyCommand>.link_format.format_using(typeof(MyCommand).Name,
+                    result.ShouldEqual(LinkBuilder.link_format.format_using(typeof(MyCommand).Name,
                                                                                        mapped_tokens));
 
             static
@@ -81,20 +115,47 @@ namespace nothinbutdotnetstore.specs.web
 
             static string mapped_tokens;
         }
+        public class when_a_tokenizer_is_requested_for_an_item : concern
+        {
+            Establish c = () =>
+            {
+                the_person = new Person();
+                token_appender_factory = the_dependency<TokenAppenderFactory>();
+                token_appender = an<TokenAppender<Person>>();
+
+
+                token_appender_factory.Stub(x => x.create_appender(the_person,Arg<LinkBuilder>.Is.NotNull)).Return(token_appender);
+
+            };
+
+            Because b = () =>
+                result = sut.tokenize_with(the_person);
+
+            It should_return_a_token_appender_that_can_work_with_the_type = () =>
+                result.ShouldEqual(token_appender);
+
+            static TokenAppender<Person> result;
+            static Person the_person;
+            static TokenAppenderFactory token_appender_factory;
+            static TokenAppender<Person> token_appender;
+        }
+    class Person
+    {
+    }
 
         public class acceptance
         {
-            public class concern : Observes<LinkBuilder<MyCommand>>
+            public class concern : Observes<LinkBuilder>
             {
                 Establish c = () =>
                 {
-                    create_sut_using(() => new LinkBuilder<MyCommand>(
+                    create_sut_using(() => new LinkBuilder(
                         new Dictionary<string, object>(),
                         new DefaultPayloadTokensMapper()));
                 };
             }
 
-            [Subject(typeof(LinkBuilder<>))]
+            [Subject(typeof(LinkBuilder))]
             public class when_building_links_with_real_dependencies : concern
             {
                 Because b = () =>
@@ -127,4 +188,5 @@ namespace nothinbutdotnetstore.specs.web
             }
         }
     }
+
 }

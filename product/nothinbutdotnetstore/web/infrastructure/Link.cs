@@ -4,10 +4,10 @@ namespace nothinbutdotnetstore.web.infrastructure
 {
     public class Link
     {
-        public static LinkBuilder<CommandToRun> to_run<CommandToRun>()   where CommandToRun : ApplicationCommand
+        public static LinkBuilder to_run<CommandToRun>() where CommandToRun : ApplicationCommand
         {
+//            return new LinkBuilder().to_run<CommandToRun>();
             throw new NotImplementedException();
         }
-
     }
 }

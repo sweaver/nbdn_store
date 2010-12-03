@@ -74,6 +74,8 @@
     </Compile>
     <Compile Include="web\infrastructure\stubs\StubWebFormViewPathRegistry.cs" />
     <Compile Include="web\infrastructure\Encode.cs" />
+    <Compile Include="web\infrastructure\TokenAppender.cs" />
+    <Compile Include="web\infrastructure\TokenAppenderFactory.cs" />
     <Compile Include="web\infrastructure\WebFormResponseEngine.cs" />
     <Compile Include="web\infrastructure\FrontController .cs" />
     <Compile Include="web\infrastructure\MissingRequestCommand.cs" />
