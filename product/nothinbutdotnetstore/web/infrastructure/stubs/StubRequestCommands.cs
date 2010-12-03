@@ -18,6 +18,9 @@ namespace nothinbutdotnetstore.web.infrastructure.stubs
 
             yield return new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewDepartmentsInADeparment).Name),
                                                    new ViewDepartmentsInADeparment());
+
+            yield return new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewProductsInADepartment).Name),
+                                                   new ViewProductsInADepartment());
         }
     }
 }

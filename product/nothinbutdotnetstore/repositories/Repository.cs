@@ -7,6 +7,6 @@ namespace nothinbutdotnetstore.repositories
     {
         IEnumerable<Department> get_all_main_departments();
         IEnumerable<Department> get_all_departments_in(Department department);
-        IEnumerable<Product> get_products_in_department(Department map);
+        IEnumerable<Product> get_products_in(Department map);
     }
 }

@@ -10,11 +10,11 @@ using Rhino.Mocks;
 namespace nothinbutdotnetstore.specs.web {
     public class ViewProductsInADepartmentSpecs {
         public abstract class concern : Observes<ApplicationCommand,
-                                            ViewProductsInADeparment> {
+                                            ViewProductsInADepartment> {
 
         }
 
-        [Subject(typeof(ViewProductsInADeparment))]
+        [Subject(typeof(ViewProductsInADepartment))]
         public class when_viewing_products_in_a_department : concern {
             Establish c = () =>
             {
@@ -26,7 +26,7 @@ namespace nothinbutdotnetstore.specs.web {
                 request = an<Request>();
 
                 request.Stub(x => x.map<Department>()).Return(department);
-                department_repository.Stub(x => x.get_products_in_department(department)).Return(products_in_a_department);
+                department_repository.Stub(x => x.get_products_in(department)).Return(products_in_a_department);
             };
 
             Because b = () =>

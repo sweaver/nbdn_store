@@ -13,13 +13,15 @@ namespace nothinbutdotnetstore.repositories.stubs
 
         public IEnumerable<Department> get_all_departments_in(Department department)
         {
-            return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Sub Department 0")});
+            return
+                Enumerable.Range(1, 100).Select(
+                    x => new Department {name = x.ToString("Sub Department 0"), has_products = x%2 == 0});
         }
 
 
-        public IEnumerable<Product> get_products_in_department(Department department)
+        public IEnumerable<Product> get_products_in(Department department)
         {
-            return Enumerable.Range(1, 10).Select(x => new Product() { Name = x.ToString("Product 0") });
+            return Enumerable.Range(1, 10).Select(x => new Product { Name = x.ToString("Product 0") });
         }
     }
 }

@@ -15,7 +15,8 @@ MasterPageFile="Store.master" %>
                     %>
             <tr class="ListItem">
                		 <td>                     
-                        <a href="<%=Link.to_run<ViewDepartmentsInADeparment>()
+                   ?sdfsfd :sdfsdf
+                        <a href="<%=Link.to_run_iif<ViewProductsInADepartment,ViewDepartmentsInADeparment>(department.has_products)
                                          .tokenize_with(department)
                                          .include(x => x.name)%>"><%=department.name%></a>
                      </td>
