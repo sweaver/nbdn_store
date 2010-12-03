@@ -1,4 +1,5 @@
 using System.Web;
+using nothinbutdotnetstore.infrastructure;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
@@ -7,7 +8,8 @@ namespace nothinbutdotnetstore.web.infrastructure
         RequestFactory request_factory;
         FrontController front_controller;
 
-        public RawRequestHandler()
+        public RawRequestHandler():this(Container.resolve.an<RequestFactory>(),
+            Container.resolve.an<FrontController>())
         {
         }
 
