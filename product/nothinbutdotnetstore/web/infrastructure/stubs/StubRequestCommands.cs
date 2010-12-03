@@ -13,10 +13,10 @@ namespace nothinbutdotnetstore.web.infrastructure.stubs
 
         public IEnumerator<RequestCommand> GetEnumerator()
         {
-            yield return new DefaultRequestCommand(x => true,
+            yield return new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewMainDepartmentsInTheStore).Name),
                                                    new ViewMainDepartmentsInTheStore());
 
-            yield return new DefaultRequestCommand(x => true,
+            yield return new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewDepartmentsInADeparment).Name),
                                                    new ViewDepartmentsInADeparment());
         }
     }

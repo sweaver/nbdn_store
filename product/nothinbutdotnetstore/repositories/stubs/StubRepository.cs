@@ -13,7 +13,7 @@ namespace nothinbutdotnetstore.repositories.stubs
 
         public IEnumerable<Department> get_all_departments_in(Department department)
         {
-            return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("SubDepartment 0")});
+            return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Sub Department 0")});
         }
     }
 }
