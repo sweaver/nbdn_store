@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using nothinbutdotnetstore.web.application;
 
 namespace nothinbutdotnetstore.web.infrastructure.stubs
 {
@@ -14,7 +13,7 @@ namespace nothinbutdotnetstore.web.infrastructure.stubs
         public IEnumerator<RequestCommand> GetEnumerator()
         {
             yield break;
-            
+
             //yield return
             //    new DefaultRequestCommand(x => x.full_command.Contains(typeof(ViewMainDepartmentsInTheStore).Name),
             //                              new ViewMainDepartmentsInTheStore());

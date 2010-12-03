@@ -4,5 +4,5 @@ using nothinbutdotnetstore.web.infrastructure;
 
 namespace nothinbutdotnetstore.web.application
 {
-    public delegate IEnumerable<Detail> GetTheDetails<Detail>(Repository repository,Request request);
+    public delegate IEnumerable<Detail> GetTheDetails<Detail>(Repository repository, Request request);
 }

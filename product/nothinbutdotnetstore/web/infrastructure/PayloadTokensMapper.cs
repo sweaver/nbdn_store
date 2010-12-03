@@ -4,6 +4,6 @@ namespace nothinbutdotnetstore.web.infrastructure
 {
     public interface PayloadTokensMapper
     {
-        string map(IEnumerable<KeyValuePair<string,object>> tokens);
+        string map(IEnumerable<KeyValuePair<string, object>> tokens);
     }
 }

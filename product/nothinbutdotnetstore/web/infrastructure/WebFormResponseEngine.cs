@@ -1,5 +1,3 @@
-using System.Web;
-
 namespace nothinbutdotnetstore.web.infrastructure
 {
     public class WebFormResponseEngine : ResponseEngine

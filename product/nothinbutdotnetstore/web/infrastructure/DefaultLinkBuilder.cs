@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using nothinbutdotnetstore.repositories.stubs;
 
 namespace nothinbutdotnetstore.web.infrastructure
 {
@@ -18,18 +17,18 @@ namespace nothinbutdotnetstore.web.infrastructure
 
         public Type command_to_run { get; private set; }
 
-        public DefaultLinkBuilder():this(new Dictionary<string, object>(),
-            new DefaultPayloadTokensMapper(),new ItemBoundTokenAppenderFactory())
+        public DefaultLinkBuilder() : this(new Dictionary<string, object>(),
+                                           new DefaultPayloadTokensMapper(), new ItemBoundTokenAppenderFactory())
         {
         }
 
-        public DefaultLinkBuilder(IDictionary<string, object> values, PayloadTokensMapper payload_tokens_mapper,TokenAppenderFactory token_appender_factory)
+        public DefaultLinkBuilder(IDictionary<string, object> values, PayloadTokensMapper payload_tokens_mapper,
+                                  TokenAppenderFactory token_appender_factory)
         {
             this.values = values;
             this.payload_tokens_mapper = payload_tokens_mapper;
             this.token_appender_factory = token_appender_factory;
         }
-
 
         public void include<Item>(Item payload_value, string key)
         {

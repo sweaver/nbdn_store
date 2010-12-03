@@ -7,7 +7,7 @@ namespace nothinbutdotnetstore.web.infrastructure
     {
         Encode encode;
 
-        public DefaultPayloadTokenMapper():this(x => HttpUtility.UrlEncode(x.ToString()))
+        public DefaultPayloadTokenMapper() : this(x => HttpUtility.UrlEncode(x.ToString()))
         {
         }
 

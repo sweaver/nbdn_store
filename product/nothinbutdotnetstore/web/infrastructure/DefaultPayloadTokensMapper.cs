@@ -7,7 +7,7 @@ namespace nothinbutdotnetstore.web.infrastructure
     {
         PayloadTokenMapper payload_token_mapper;
 
-        public DefaultPayloadTokensMapper():this(new DefaultPayloadTokenMapper())
+        public DefaultPayloadTokensMapper() : this(new DefaultPayloadTokenMapper())
         {
         }
 

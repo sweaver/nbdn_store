@@ -1,6 +1,3 @@
-using System.Web.Compilation;
-using nothinbutdotnetstore.web.infrastructure.stubs;
-
 namespace nothinbutdotnetstore.web.infrastructure
 {
     public class WebFormViewFactory : ViewFactory

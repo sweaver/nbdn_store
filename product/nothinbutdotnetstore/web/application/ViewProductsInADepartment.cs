@@ -1,6 +1,5 @@
 ﻿using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.repositories;
-using nothinbutdotnetstore.repositories.stubs;
 using nothinbutdotnetstore.web.infrastructure;
 
 namespace nothinbutdotnetstore.web.application

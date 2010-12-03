@@ -1,5 +1,4 @@
 using nothinbutdotnetstore.repositories;
-using nothinbutdotnetstore.repositories.stubs;
 using nothinbutdotnetstore.web.infrastructure;
 
 namespace nothinbutdotnetstore.web.application
@@ -19,7 +18,7 @@ namespace nothinbutdotnetstore.web.application
 
         public void process(Request request)
         {
-            response_engine.display(query(repository,request));
+            response_engine.display(query(repository, request));
         }
     }
 }
