@@ -9,6 +9,5 @@ namespace nothinbutdotnetstore.web.infrastructure
             throw new NotImplementedException();
         }
 
-        public static LinkBuilder<>
     }
 }
