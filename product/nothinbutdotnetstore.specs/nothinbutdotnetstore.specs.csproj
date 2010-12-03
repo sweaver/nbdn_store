@@ -75,6 +75,8 @@
     <Compile Include="web\RawRequestHandlerSpecs.cs" />
     <Compile Include="web\RequestCommandSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />
+    <Compile Include="web\TokenAppenderFactorySpecs.cs" />
+    <Compile Include="web\TokenAppenderSpecs.cs" />
     <Compile Include="web\ViewDepartmentsInADepartmentSpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsInTheStoreSpecs.cs" />
     <Compile Include="web\WebFormViewFactorySpecs.cs" />

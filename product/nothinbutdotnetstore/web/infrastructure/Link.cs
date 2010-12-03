@@ -1,13 +1,10 @@
-﻿using System;
-
-namespace nothinbutdotnetstore.web.infrastructure
+﻿namespace nothinbutdotnetstore.web.infrastructure
 {
     public class Link
     {
-        public static LinkBuilder to_run<CommandToRun>() where CommandToRun : ApplicationCommand
+        public static DefaultLinkBuilder to_run<CommandToRun>() where CommandToRun : ApplicationCommand
         {
-//            return new LinkBuilder().to_run<CommandToRun>();
-            throw new NotImplementedException();
+            return new DefaultLinkBuilder().to_target<CommandToRun>();
         }
     }
 }

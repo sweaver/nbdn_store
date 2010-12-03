@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.specs.web
             It should_return_the_correct_link_aggregator = () =>
                 result.ShouldNotBeNull();
 
-            static LinkBuilder result;
+            static DefaultLinkBuilder result;
         }
 
         class MyCommand : ApplicationCommand

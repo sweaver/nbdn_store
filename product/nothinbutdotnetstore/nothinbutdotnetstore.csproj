@@ -65,7 +65,9 @@
     <Compile Include="web\infrastructure\DefaultPayloadTokenMapper.cs" />
     <Compile Include="web\infrastructure\DefaultPayloadTokensMapper.cs" />
     <Compile Include="web\infrastructure\DefaultRequestCommand.cs" />
-    <Compile Include="web\infrastructure\LinkBuilder.cs" />
+    <Compile Include="web\infrastructure\ItemBoundTokenAppender.cs" />
+    <Compile Include="web\infrastructure\DefaultLinkBuilder.cs" />
+    <Compile Include="web\infrastructure\ItemBoundTokenAppenderFactory.cs" />
     <Compile Include="web\infrastructure\Link.cs" />
     <Compile Include="web\infrastructure\PayloadTokenMapper.cs" />
     <Compile Include="web\infrastructure\PayloadTokensMapper.cs" />
