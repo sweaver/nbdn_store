@@ -4,9 +4,16 @@ namespace nothinbutdotnetstore.infrastructure.containers.basic
 {
     public class BasicDependencyBuilder : DependencyBuilder
     {
+        Func<object> factory;
+
+        public BasicDependencyBuilder(Func<object> factory)
+        {
+            this.factory = factory;
+        }
+
         public object build()
         {
-            throw new NotImplementedException();
+            return factory.Invoke();
         }
     }
 }
