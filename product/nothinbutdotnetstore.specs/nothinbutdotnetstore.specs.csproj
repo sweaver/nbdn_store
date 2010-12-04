@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="infrastructure\BasicDependencyContainerSpecs.cs" />
+    <Compile Include="infrastructure\DependencyContainerSpecs.cs" />
     <Compile Include="infrastructure\ContainerSpecs.cs" />
     <Compile Include="infrastructure\DependencyBuildersSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />
