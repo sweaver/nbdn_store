@@ -8,7 +8,7 @@ using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.infrastructure
 {
-    public class BasicDependencyContainerSpecs
+    public class DependencyContainerSpecs
     {
         public abstract class concern : Observes<DependencyContainer,
                                             BasicDependencyContainer>
